@@ -10,8 +10,8 @@ def buildTransitionMatrix(ale, actionSet, maxNumFrames, setOfTransitions, humanT
 	listTransitions = []
 	prevFeatures = RAMFeatures.getRAMVector(ale)
 
-	for i in xrange(len(humanTrajectory)):
-		for j in xrange(5): #I gathered the trajectory with a frame skip of 5
+	for i in range(len(humanTrajectory)):
+		for j in range(5): #I gathered the trajectory with a frame skip of 5
 			reward = ale.act(humanTrajectory[i])
 			total_reward += reward
 			# Obtaining real feature vector

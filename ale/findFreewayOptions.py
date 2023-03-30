@@ -23,7 +23,7 @@ y_stdLengthOptions = []
 x_totalNumUpActions = []
 y_totalNumUpActions = []
 
-for i in xrange(1024):
+for i in range(1024):
   fileName = pathToLoad + str(i) + '.npy'
   policy = np.load(fileName)
 
@@ -55,7 +55,7 @@ for i in xrange(1024):
   #This is different from the length of the first option.
   lengthOptions = []
   lastIndex = 0
-  for j in xrange(len(indicesNoOp[0])):
+  for j in range(len(indicesNoOp[0])):
     lengthOptions.append(indicesNoOp[0][j] - lastIndex - 1)
     lastIndex = indicesNoOp[0][j]
 
@@ -68,7 +68,7 @@ for i in xrange(1024):
     y_stdLengthOptions.append(stdLengthOfOption)
 
 
-#for i in xrange(len(x_stdLengthOptions)):
+#for i in range(len(x_stdLengthOptions)):
 #  print x_stdLengthOptions[i], "%.2f" % y_stdLengthOptions[i]
 
   if i == 373 or i == 385 or i == 452 or i == 823 or i == 981:

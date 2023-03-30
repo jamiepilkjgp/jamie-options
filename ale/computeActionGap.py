@@ -60,26 +60,26 @@ gameName = sys.argv[2]
 eigenpurposes = np.load('fullHumanEigenpurposes_freeway.npy')
 
 # We learn how to maximize such eigenpurposes for each random start
-for trj in xrange(0, 1):
+for trj in range(0, 1):
   randomStart = np.load('humanStarts/' + gameName + '_' + str(trj) + '.npy')
 
   options = []
   actionsVal = []
 
-  for i in xrange(numOptions):
+  for i in range(numOptions):
     options.append([])
     actionsVal.append([])
-    for j in xrange(len(actionSet)):
+    for j in range(len(actionSet)):
       actionsVal[i].append([])
 
-  for i in xrange(numOptions):
+  for i in range(numOptions):
     frame = 0
     extrinsicReward = 0
     eigenpurposeIdx = 1023 - i
     optionIdx = eigenpurposeIdx
     print 'Learning option ', eigenpurposeIdx
 
-    for a in xrange(len(randomStart)):
+    for a in range(len(randomStart)):
         extrinsicReward += ale.act(randomStart[a]);
         frame += 1
 
@@ -90,7 +90,7 @@ for trj in xrange(0, 1):
       bestActionVal = 0
 
       # Try all actions 
-      for actionIdx in xrange(len(actionSet)):
+      for actionIdx in range(len(actionSet)):
         ale.saveState()
         extrinsicReward += ale.act(actionSet[actionIdx]);
         currFeatures = RAMFeatures.getRAMVector(ale)

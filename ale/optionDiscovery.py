@@ -70,10 +70,10 @@ np.save('eigenvalues', s)
 prevFeatures = RAMFeatures.getRAMVector(ale)
 
 options = []
-for i in xrange(len(s)):
+for i in range(len(s)):
   options.append([])
 
-for i in xrange(len(s)):
+for i in range(len(s)):
   frame = 0
   eigenpurposeIdx = 1023 - i
   optionIdx = eigenpurposeIdx
@@ -85,7 +85,7 @@ for i in xrange(len(s)):
     bestActionVal = 0
 
     # Try all actions 
-    for actionIdx in xrange(len(actionSet)):
+    for actionIdx in range(len(actionSet)):
       ale.saveState()
       extrinsicReward = ale.act(actionSet[actionIdx]);
       currFeatures = RAMFeatures.getRAMVector(ale)

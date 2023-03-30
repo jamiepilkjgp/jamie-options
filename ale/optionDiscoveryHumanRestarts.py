@@ -55,7 +55,7 @@ setOfTransitions = set()
 randomStart = np.load('humanStarts/' + gameName + '_0.npy')
 setOfTransitions, T = DataCollectionHumanStarts.buildTransitionMatrix(ale, actionSet, maxNumFrames, setOfTransitions, randomStart)
 while len(T) < maxNumFrames:
-  for i in xrange(6):
+  for i in range(6):
     randomStart = np.load('humanStarts/' + gameName + '_' + str(i) + '.npy')
     setOfTransitions, listTransitions = DataCollectionHumanStarts.buildTransitionMatrix(ale, actionSet, maxNumFrames, setOfTransitions, randomStart)
     T = np.concatenate((T, listTransitions))
@@ -76,20 +76,20 @@ np.save('eigenvalues', s)
 
 
 # We learn how to maximize such eigenpurposes for each random start
-for trj in xrange(0, 6):
+for trj in range(0, 6):
   randomStart = np.load('humanStarts/' + gameName + '_' + str(trj) + '.npy')
 
   options = []
-  for i in xrange(len(s)):
+  for i in range(len(s)):
     options.append([])
 
-  for i in xrange(len(s)):
+  for i in range(len(s)):
     frame = 0
     eigenpurposeIdx = 1023 - i
     optionIdx = eigenpurposeIdx
     print 'Learning option ', eigenpurposeIdx
 
-    for a in xrange(len(randomStart)):
+    for a in range(len(randomStart)):
         extrinsicReward = ale.act(randomStart[a]);
 
     prevFeatures = RAMFeatures.getRAMVector(ale)
@@ -99,7 +99,7 @@ for trj in xrange(0, 6):
       bestActionVal = 0
 
       # Try all actions 
-      for actionIdx in xrange(len(actionSet)):
+      for actionIdx in range(len(actionSet)):
         ale.saveState()
         extrinsicReward = ale.act(actionSet[actionIdx]);
         currFeatures = RAMFeatures.getRAMVector(ale)

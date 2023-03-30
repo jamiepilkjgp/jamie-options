@@ -90,7 +90,7 @@ while not ale.game_over() and frame < len(policy):
 
 ale.reset_game()
 
-plt.plot(xrange(0, 5*len(rewards), 5), rewards)
+plt.plot(range(0, 5*len(rewards), 5), rewards)
 plt.xlabel('Time step')
 plt.ylabel('Immediate Reward')
 plt.title('Reward along the episode (Freeway)')

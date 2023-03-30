@@ -57,7 +57,7 @@ policy = np.load(fileToLoad)
 
 rewards = []
 
-for a in xrange(len(randomStart)):
+for a in range(len(randomStart)):
   extrinsicReward = ale.act(randomStart[a]);
 
 prevFeatures = RAMFeatures.getRAMVector(ale)
